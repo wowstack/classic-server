@@ -20,6 +20,49 @@ steps:
     CXX: clang++-6.0
     CLICOLOR_FORCE: 1
     CMAKE_BUILD_PROCESSES: 2
+    CMAKE_BUILD_TYPE: Release
+    CMAKE_INSTALL_LAYOUT: DEB
+    CMAKE_INSTALL_PREFIX: /opt/wowstack/classic-server
+
+- name: install
+  image: wowstack/build-image:2.0-linux-amd64
+  volumes:
+  - name: build-cache
+    path: /drone/src/_build
+  commands:
+  - "cmake --build `pwd`/_build/ --target install --config $CMAKE_BUILD_TYPE -- -j $CMAKE_BUILD_PROCESSES"
+  environment:
+    CC: clang-6.0
+    CXX: clang++-6.0
+    CLICOLOR_FORCE: 1
+    CMAKE_BUILD_PROCESSES: 2
+    CMAKE_BUILD_TYPE: Release
+    CMAKE_INSTALL_LAYOUT: DEB
+    CMAKE_INSTALL_PREFIX: /opt/wowstack/classic-server
+
+---
+kind: pipeline
+name: test
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: build
+  image: wowstack/build-image:2.0-linux-amd64
+  volumes:
+  - name: build-cache
+    path: /drone/src/_build
+  commands:
+  - "cmake -H`pwd` -B`pwd`/_build/ -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_INSTALL_PREFIX=$CMAKE_INSTALL_PREFIX -DINSTALL_LAYOUT=$CMAKE_INSTALL_LAYOUT -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+  - "cmake --build `pwd`/_build/ --target all --config $CMAKE_BUILD_TYPE -- -j $CMAKE_BUILD_PROCESSES"
+  environment:
+    CC: clang-6.0
+    CXX: clang++-6.0
+    CLICOLOR_FORCE: 1
+    CMAKE_BUILD_PROCESSES: 2
+    CMAKE_BUILD_TYPE: Debug
     CMAKE_INSTALL_LAYOUT: DEB
     CMAKE_INSTALL_PREFIX: /opt/wowstack/classic-server
 
@@ -36,24 +79,11 @@ steps:
     CXX: clang++-6.0
     CLICOLOR_FORCE: 1
     CMAKE_BUILD_PROCESSES: 2
+    CMAKE_BUILD_TYPE: Debug
     CMAKE_INSTALL_LAYOUT: DEB
     CMAKE_INSTALL_PREFIX: /opt/wowstack/classic-server
 
-- name: install
-  image: wowstack/build-image:2.0-linux-amd64
-  volumes:
-  - name: build-cache
-    path: /drone/src/_build
-  commands:
-  - "cmake --build `pwd`/_build/ --target install --config $CMAKE_BUILD_TYPE -- -j $CMAKE_BUILD_PROCESSES"
-  environment:
-    CC: clang-6.0
-    CXX: clang++-6.0
-    CLICOLOR_FORCE: 1
-    CMAKE_BUILD_PROCESSES: 2
-    CMAKE_INSTALL_LAYOUT: DEB
-    CMAKE_INSTALL_PREFIX: /opt/wowstack/classic-server
-
+---
 volumes:
 - name: build-cache
   temp: {}
