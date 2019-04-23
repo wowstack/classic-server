@@ -1,5 +1,7 @@
 # WowStack: Classic World of Warcraft Server
 
+[![Drone Build status][drone-image]][drone-url]
+
 ## What is WowStack?
 
 [WowStack][wowstack] Classic Server implements tools and server runtimes
@@ -37,6 +39,9 @@ And lastly, we have this to say:
 
 > World of Warcraft, and all World of Warcraft or Warcraft art, images, and lore
 > are copyrighted by [Blizzard Entertainment, Inc.][blizzard]
+
+[drone-image]: https://build01.kogitoapp.com/api/badges/wowstack/classic-server/status.svg
+[drone-url]: https://build01.kogitoapp.com/wowstack/classic-server
 
 [wowstack]: https://wowstack.io/
 [wow-1]: http://blizzard.com/games/wow/
