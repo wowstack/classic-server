@@ -1,0 +1,47 @@
+language: cpp
+sudo: false
+dist: xenial
+
+addons:
+  apt:
+    packages:
+      - build-essential
+      - cmake
+      - libtool
+      - make
+      - libbz2-dev
+      - libmysqlclient-dev
+      - libncurses5-dev
+      - libreadline-dev
+      - libsdl2-dev
+      - libssl-dev
+      - zlib1g-dev
+      - libboost-dev
+      - libboost-atomic-dev
+      - libboost-chrono-dev
+      - libboost-date-time-dev
+      - libboost-filesystem-dev
+      - libboost-program-options-dev
+      - libboost-regex-dev
+      - libboost-serialization-dev
+      - libboost-system-dev
+      - libboost-thread-dev
+
+git:
+  depth: 1
+
+os:
+  - linux
+
+compiler:
+  - clang
+
+env:
+- CMAKE_RELEASE_TYPE=Release
+- CMAKE_RELEASE_TYPE=Debug
+
+script: |-
+  mkdir -p _build _install
+  cmake -H`pwd` -B_build -DCMAKE_BUILD_TYPE=${CMAKE_RELEASE_TYPE} -DCMAKE_INSTALL_PREFIX=_install -DINSTALL_LAYOUT=DEB
+  cmake --build _build --target all --config ${CMAKE_RELEASE_TYPE} -- -j 2
+  cmake --build _build --target install --config ${CMAKE_RELEASE_TYPE} -- -j 2

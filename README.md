@@ -1,6 +1,7 @@
 # WowStack: Classic World of Warcraft Server
 
 [![Drone Build status][drone-image]][drone-url]
+[![Travis CI Build status][travis-image]][travis-url]
 
 ## What is WowStack?
 
@@ -42,6 +43,8 @@ And lastly, we have this to say:
 
 [drone-image]: https://build01.kogitoapp.com/api/badges/wowstack/classic-server/status.svg
 [drone-url]: https://build01.kogitoapp.com/wowstack/classic-server
+[travis-image]: https://travis-ci.org/wowstack/classic-server.svg
+[travis-url]: https://travis-ci.org/wowstack/classic-server
 
 [wowstack]: https://wowstack.io/
 [wow-1]: http://blizzard.com/games/wow/
