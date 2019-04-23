@@ -1,0 +1,61 @@
+version: '{build}'
+branches:
+  only:
+  - master
+clone_folder: c:\projects\wowstack\classic-server
+image:
+- Visual Studio 2017
+configuration:
+- Release
+- Debug
+platform:
+- x64
+environment:
+  MSVC_DEFAULT_OPTIONS: ON
+  BOOST_ROOT: C:\Libraries\boost_1_65_1
+  BOOST_LIBRARYDIR_WIN32: C:\Libraries\boost_1_65_1\lib32-msvc-14.0
+  BOOST_LIBRARYDIR_WIN64: C:\Libraries\boost_1_65_1\lib64-msvc-14.0
+  matrix:
+  - arch: Win64
+matrix:
+  fast_finish: true
+
+install:
+- nuget install zlib-msvc-%platform%
+- cmd : move zlib* zlib
+- cmd : set ZLIB_ROOT=c:\projects\wowstack\classic-server\zlib
+- cmd : set ZLIB_INCLUDE_DIR=c:\projects\wowstack\classic-server\zlib\build\native\include
+- cmd : set ZLIB_LIBRARY_RELEASE=c:\projects\wowstack\classic-server\zlib\build\native\lib_release\zlib.lib
+- cmd : set ZLIB_LIBRARY_DEBUG=c:\projects\wowstack\classic-server\zlib\build\native\lib_debug\zlibd.lib
+
+- nuget install bzip2
+- cmd : move bzip2* bzip2
+- cmd : set BZIP2_ROOT=c:\projects\wowstack\classic-server\bzip2
+- cmd : set BZIP2_INCLUDE_DIR=c:\projects\wowstack\classic-server\bzip2\build\native\include
+- cmd : set BZIP2_LIBRARY_RELEASE=c:\projects\wowstack\classic-server\bzip2\build\native\lib\x64\release\libbz2.lib
+- cmd : set BZIP2_LIBRARY_DEBUG=c:\projects\wowstack\classic-server\bzip2\build\native\lib\x64\debug\libbz2d.lib
+
+- cmd : set PATH=%ZLIB_ROOT%;%BZIP2_ROOT%;%PATH%;
+
+init:
+- set arch=
+- if "%arch%"=="Win64" ( set arch= Win64)
+- echo %arch%
+- echo %APPVEYOR_BUILD_WORKER_IMAGE%
+- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
+- echo %generator%
+
+before_build:
+- cmd: |-
+    mkdir _build
+    cd _build
+    cmake --version
+    cmake .. -G %generator% -DCMAKE_BUILD_TYPE=%configuration% -DZLIB_INCLUDE_DIR=%ZLIB_INCLUDE_DIR% -DZLIB_LIBRARY_RELEASE=%ZLIB_LIBRARY_RELEASE% -DZLIB_LIBRARY_DEBUG=%ZLIB_LIBRARY_DEBUG% -DBZIP2_INCLUDE_DIR=%BZIP2_INCLUDE_DIR% -DBZIP2_LIBRARY_RELEASE=%BZIP2_LIBRARY_RELEASE% -DBZIP2_LIBRARY_DEBUG=%BZIP2_LIBRARY_DEBUG%
+
+build:
+  project: c:\projects\wowstack\classic-server\_build\wowstack.sln
+  verbosity: minimal
+  parallel: true
+
+deploy: "off"
+test: "off"
