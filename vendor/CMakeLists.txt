@@ -25,5 +25,9 @@ add_subdirectory(mpq)
 add_subdirectory(recastnavigation)
 
 #------------------------------------------------------------------------------
+# Include stormlib project
+add_subdirectory(stormlib)
+
+#------------------------------------------------------------------------------
 # Include utf8cpp project
 add_subdirectory(utf8cpp)
