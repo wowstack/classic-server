@@ -52,6 +52,6 @@ And lastly, we have this to say:
 [wowstack]: https://wowstack.io/
 [wow-1]: http://blizzard.com/games/wow/
 [discord]: https://discord.gg/TttsRMp
-[patreon]: https://www.patreon.com/wowstack
+[patreon]: https://www.patreon.com/bePatron?u=10897042
 [license]: https://choosealicense.com/licenses/agpl-3.0/
 [blizzard]: http://blizzard.com/
