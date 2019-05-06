@@ -8,7 +8,8 @@ platform:
 
 steps:
 - name: build
-  image: wowstack/build-image:2.0-linux-amd64
+  image: wowstack/build-image:latest
+  pull: always
   volumes:
   - name: build-cache
     path: /drone/src/_build
@@ -25,7 +26,8 @@ steps:
     CMAKE_INSTALL_PREFIX: /opt/wowstack/classic-server
 
 - name: install
-  image: wowstack/build-image:2.0-linux-amd64
+  image: wowstack/build-image:latest
+  pull: always
   volumes:
   - name: build-cache
     path: /drone/src/_build
@@ -50,7 +52,8 @@ platform:
 
 steps:
 - name: build
-  image: wowstack/build-image:2.0-linux-amd64
+  image: wowstack/build-image:latest
+  pull: always
   volumes:
   - name: build-cache
     path: /drone/src/_build
@@ -67,7 +70,8 @@ steps:
     CMAKE_INSTALL_PREFIX: /opt/wowstack/classic-server
 
 - name: test
-  image: wowstack/build-image:2.0-linux-amd64
+  image: wowstack/build-image:latest
+  pull: always
   volumes:
   - name: build-cache
     path: /drone/src/_build
