@@ -28,10 +28,18 @@ IncludeBlocks: Merge
 IncludeCategories:
   - Regex:           '^"'
     Priority:        1
-  - Regex:           '^<boost/'
+  - Regex:           '^<Detour'
     Priority:        2
-  - Regex:           '^<'
+  - Regex:           '^<Recast'
     Priority:        3
+  - Regex:           '^<G3D/'
+    Priority:        4
+  - Regex:           '^<openssl/'
+    Priority:        5
+  - Regex:           '^<boost/'
+    Priority:        6
+  - Regex:           '^<'
+    Priority:        7
 
 # Other:
 
