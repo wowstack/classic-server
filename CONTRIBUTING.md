@@ -7,7 +7,7 @@ guidelines useful to experienced contributors.
 
 ## Topics
 
-- [Reporting security sssues](#reporting-security-issues)
+- [Reporting security issues](#reporting-security-issues)
 - [Reporting other issues](#reporting-other-issues)
 - [Quick contribution tips and guidelines](#quick-contribution-tips-and-guidelines)
 
@@ -119,7 +119,7 @@ the feature or fix.
 We rely on [git-journal][git-journal] to manage the list of changes in the file
 `CHANGELOG.md`. To make this work, please adhere to a few simple rules.
 
-This example commit message show all keywords and convetions to be used.
+This example commit message show all keywords and conventions to be used.
 
 Apart from the summary line, the remaining content is optional and should be
 used when needed. We rely on your sanity.
