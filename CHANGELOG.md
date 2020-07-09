@@ -7,6 +7,7 @@ Items starting with `DEPRECATION` are important deprecation notices.
 
 ## Unreleased
 
+- [Removed] old build status
 - [Changed] to always use latest build environment
 - [Improved] documentation
 - [Improved] README

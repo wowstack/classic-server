@@ -1,7 +1,6 @@
 # WowStack: Classic World of Warcraft Server
 
 [![AppVeyor Build status][appveyor-image]][appveyor-url]
-[![Drone Build status][drone-image]][drone-url]
 [![Travis CI Build status][travis-image]][travis-url]
 
 ## What is WowStack?
@@ -44,8 +43,6 @@ licenses.
 
 [appveyor-image]: https://ci.appveyor.com/api/projects/status/w3a2rxe8hcu548i8?svg=true
 [appveyor-url]: https://ci.appveyor.com/project/wowstack/classic-server
-[drone-image]: https://build01.kogitoapp.com/api/badges/wowstack/classic-server/status.svg
-[drone-url]: https://build01.kogitoapp.com/wowstack/classic-server
 [travis-image]: https://travis-ci.org/wowstack/classic-server.svg
 [travis-url]: https://travis-ci.org/wowstack/classic-server
 
