@@ -1,5 +1,6 @@
 ---
 kind: pipeline
+type: docker
 name: default
 
 platform:
@@ -42,8 +43,12 @@ steps:
       CMAKE_INSTALL_LAYOUT: DEB
       CMAKE_INSTALL_PREFIX: /opt/wowstack/classic-server
 
+volumes:
+  - name: build-cache
+    temp: {}
 ---
 kind: pipeline
+type: docker
 name: test
 
 platform:
@@ -55,7 +60,7 @@ steps:
     image: wowstack/build-image:latest
     pull: always
     volumes:
-      - name: build-cache
+      - name: test-cache
         path: /drone/src/_build
     commands:
       - "cmake -H`pwd` -B`pwd`/_build/ -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_INSTALL_PREFIX=$CMAKE_INSTALL_PREFIX -DINSTALL_LAYOUT=$CMAKE_INSTALL_LAYOUT -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
@@ -87,8 +92,6 @@ steps:
       CMAKE_INSTALL_LAYOUT: DEB
       CMAKE_INSTALL_PREFIX: /opt/wowstack/classic-server
 
----
 volumes:
-  - name: build-cache
-    host:
-      path: /var/cache/drone/wowstack/classic-server
+  - name: test-cache
+    temp: {}

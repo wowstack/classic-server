@@ -7,6 +7,8 @@ Items starting with `DEPRECATION` are important deprecation notices.
 
 ## Unreleased
 
+- [Fixed] Drone build
+  This allows to build and test with <https://docs.drone.io/quickstart/cli/>
 - [Improved] repository configuration
 - [Removed] old build status
 - [Changed] to always use latest build environment
