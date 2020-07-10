@@ -7,6 +7,7 @@ Items starting with `DEPRECATION` are important deprecation notices.
 
 ## Unreleased
 
+- [Added] StormLib to vendored libraries
 - [Fixed] Drone build
   This allows to build and test with <https://docs.drone.io/quickstart/cli/>
 - [Improved] repository configuration
