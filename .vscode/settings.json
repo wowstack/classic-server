@@ -1,0 +1,9 @@
+{
+    "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools",
+    "cmake.parallelJobs": 1,
+    "cmake.buildDirectory": "${workspaceFolder}/_build",
+    "cmake.configureSettings": {
+        "INSTALL_LAYOUT": "DEB",
+        "OPENSSL_ROOT_DIR": "/usr"
+    }
+}

@@ -37,8 +37,8 @@ compiler:
   - clang
 
 env:
-- CMAKE_RELEASE_TYPE=Release
-- CMAKE_RELEASE_TYPE=Debug
+  - CMAKE_RELEASE_TYPE=Release
+  - CMAKE_RELEASE_TYPE=Debug
 
 script: |-
   mkdir -p _build _install

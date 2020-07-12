@@ -45,13 +45,10 @@ licenses.
 [appveyor-url]: https://ci.appveyor.com/project/wowstack/classic-server
 [travis-image]: https://travis-ci.org/wowstack/classic-server.svg
 [travis-url]: https://travis-ci.org/wowstack/classic-server
-
 [wowstack]: https://wowstack.io/
 [wow-1]: http://blizzard.com/games/wow/
-
 [patreon-image]: https://c5.patreon.com/external/logo/become_a_patron_button.png
 [patreon-url]: https://www.patreon.com/bePatron?u=10897042
 [discord-url]: https://discord.gg/TttsRMp
-
 [license]: https://choosealicense.com/licenses/agpl-3.0/
 [blizzard]: http://blizzard.com/

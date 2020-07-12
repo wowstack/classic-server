@@ -9,7 +9,7 @@ platform:
 
 steps:
   - name: build
-    image: wowstack/build-image:latest
+    image: wowstack/build-image:2.1.1
     pull: always
     volumes:
       - name: build-cache
@@ -18,8 +18,8 @@ steps:
       - "cmake -H`pwd` -B`pwd`/_build/ -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_INSTALL_PREFIX=$CMAKE_INSTALL_PREFIX -DINSTALL_LAYOUT=$CMAKE_INSTALL_LAYOUT -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
       - "cmake --build `pwd`/_build/ --target all --config $CMAKE_BUILD_TYPE -- -j $CMAKE_BUILD_PROCESSES"
     environment:
-      CC: clang-6.0
-      CXX: clang++-6.0
+      CC: clang-10
+      CXX: clang++-10
       CLICOLOR_FORCE: 1
       CMAKE_BUILD_PROCESSES: 2
       CMAKE_BUILD_TYPE: Release
@@ -27,7 +27,7 @@ steps:
       CMAKE_INSTALL_PREFIX: /opt/wowstack/classic-server
 
   - name: install
-    image: wowstack/build-image:latest
+    image: wowstack/build-image:2.1.1
     pull: always
     volumes:
       - name: build-cache
@@ -35,8 +35,8 @@ steps:
     commands:
       - "cmake --build `pwd`/_build/ --target install --config $CMAKE_BUILD_TYPE -- -j $CMAKE_BUILD_PROCESSES"
     environment:
-      CC: clang-6.0
-      CXX: clang++-6.0
+      CC: clang-10
+      CXX: clang++-10
       CLICOLOR_FORCE: 1
       CMAKE_BUILD_PROCESSES: 2
       CMAKE_BUILD_TYPE: Release
@@ -57,7 +57,7 @@ platform:
 
 steps:
   - name: build
-    image: wowstack/build-image:latest
+    image: wowstack/build-image:2.1.1
     pull: always
     volumes:
       - name: test-cache
@@ -66,8 +66,8 @@ steps:
       - "cmake -H`pwd` -B`pwd`/_build/ -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_INSTALL_PREFIX=$CMAKE_INSTALL_PREFIX -DINSTALL_LAYOUT=$CMAKE_INSTALL_LAYOUT -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
       - "cmake --build `pwd`/_build/ --target all --config $CMAKE_BUILD_TYPE -- -j $CMAKE_BUILD_PROCESSES"
     environment:
-      CC: clang-6.0
-      CXX: clang++-6.0
+      CC: clang-10
+      CXX: clang++-10
       CLICOLOR_FORCE: 1
       CMAKE_BUILD_PROCESSES: 2
       CMAKE_BUILD_TYPE: Debug
@@ -75,7 +75,7 @@ steps:
       CMAKE_INSTALL_PREFIX: /opt/wowstack/classic-server
 
   - name: test
-    image: wowstack/build-image:latest
+    image: wowstack/build-image:2.1.1
     pull: always
     volumes:
       - name: build-cache
@@ -84,8 +84,8 @@ steps:
       - "cd `pwd`/_build/"
       - ctest -j$CMAKE_BUILD_PROCESSES -C $CMAKE_BUILD_TYPE -T test --output-on-failure
     environment:
-      CC: clang-6.0
-      CXX: clang++-6.0
+      CC: clang-10
+      CXX: clang++-10
       CLICOLOR_FORCE: 1
       CMAKE_BUILD_PROCESSES: 2
       CMAKE_BUILD_TYPE: Debug

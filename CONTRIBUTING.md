@@ -7,9 +7,9 @@ guidelines useful to experienced contributors.
 
 ## Topics
 
-- [Reporting security issues](#reporting-security-issues)
-- [Reporting other issues](#reporting-other-issues)
-- [Quick contribution tips and guidelines](#quick-contribution-tips-and-guidelines)
+-   [Reporting security issues](#reporting-security-issues)
+-   [Reporting other issues](#reporting-other-issues)
+-   [Quick contribution tips and guidelines](#quick-contribution-tips-and-guidelines)
 
 ## Reporting security issues
 
@@ -64,11 +64,11 @@ existing feature.
 
 Fork the repository and make changes on your fork in a feature branch:
 
-- If it's a bug fix branch, name it XXXX-something where XXXX is the number of
-  the issue.
-- If it's a feature branch, create an enhancement issue to announce
-  your intentions, and name it XXXX-something where XXXX is the number of the
-  issue.
+-   If it's a bug fix branch, name it XXXX-something where XXXX is the number of
+    the issue.
+-   If it's a feature branch, create an enhancement issue to announce
+    your intentions, and name it XXXX-something where XXXX is the number of the
+    issue.
 
 Submit unit tests for your changes, we have a great test framework built in;
 use it! Take a look at existing tests for inspiration. Run the full test suite
@@ -114,10 +114,13 @@ After every commit, make sure the test suite passes. Include documentation
 changes in the same pull request so that a revert would remove all traces of
 the feature or fix.
 
+In addition [pre-commit][] configuration is available to verify requirements
+before commiting and pushing changes.
+
 ### Commit messages
 
-We rely on [git-journal][git-journal] to manage the list of changes in the file
-`CHANGELOG.md`. To make this work, please adhere to a few simple rules.
+We rely on [git-journal][] to manage the list of changes in the `CHANGELOG.md`
+file. To make this work, please adhere to a few simple rules.
 
 This example commit message show all keywords and conventions to be used.
 
@@ -176,3 +179,4 @@ difference on the project!
 [project-issues]: https://github.com/wowstack/classic-server/issues
 [security-issues]: mailto:security@wowstack.io
 [git-journal]: https://github.com/saschagrunert/git-journal
+[pre-commit]: https://pre-commit.com/
