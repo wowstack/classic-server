@@ -7,6 +7,7 @@ Items starting with `DEPRECATION` are important deprecation notices.
 
 ## Unreleased
 
+-   [Added] platform abstraction library
 -   [Changed] to recastnavigation commit 57610fa
 -   [Changed] to use Docker image version 2.1.1
 -   [Added] StormLib to vendored libraries

@@ -1,6 +1,6 @@
 #------------------------------------------------------------------------------
 # We require CMake version 3.5 or newer.
-cmake_minimum_required(VERSION 3.5...3.14)
+cmake_minimum_required(VERSION 3.5...3.16)
 
 #------------------------------------------------------------------------------
 # Configure CMake policies, to ensure the system behaviour is consistent.
@@ -196,3 +196,4 @@ include(ProjectInfo)
 
 #------------------------------------------------------------------------------
 # ... and finally after so much preparation our own stuff. Yay!
+add_subdirectory(lib)
