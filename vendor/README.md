@@ -19,7 +19,7 @@ for external dependencies.
 and paths.
 
 License: MIT License
-Version used: [commit 54bb094](https://github.com/recastnavigation/recastnavigation/commit/54bb0943e5174a71eeeca11919920f685760a4f0)
+Version used: [commit 57610fa](https://github.com/recastnavigation/recastnavigation/commit/57610fa6ef31b39020231906f8c5d40eaa8294ae)
 
 ### libmpq
 
